@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parent Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .grades-table, .absences-table, .homework-list, .lessons-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .grades-table th, .absences-table th, .homework-list th, .lessons-list th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .grades-table td, .absences-table td, .homework-list td, .lessons-list td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .homework-item, .lesson-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome, {{ session['name'] }}</h1>
+    <h2>Your Child: {{ session['child_email'] }}</h2>
+
+    <h3>Subjects</h3>
+    <ul>
+        {% for subject in student_subjects %}
+            <li>
+                <a href="{{ url_for('subject_details', subject=subject.subject, student_email=subject.student_email) }}">
+                    {{ subject.subject }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</div>
+
+</body>
+</html>
