@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form action="/register" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <select name="role" required>
+                <option value="teacher">Teacher</option>
+                <option value="form_teacher">Form Teacher</option> <!-- Added Form Teacher -->
+                <option value="student">Student</option>
+                <option value="parent">Parent</option>
+            </select>
+            <input type="text" name="subject" placeholder="Subject you teach (only enter if teacher or form teacher)" >
+            <input type="text" name="class_name" placeholder="Class Name (only enter if student or form teacher)" >
+            <input type="text" name="child_email" placeholder="Child's Email Address (only enter if parent)" >
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+</body>
+</html>
