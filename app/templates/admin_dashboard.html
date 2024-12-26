@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9591721492031714"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+
+        <!-- Tab Navigation -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Teachers')">Teachers</button>
+            <button class="tablinks" onclick="openTab(event, 'Students')">Students</button>
+            <button class="tablinks" onclick="openTab(event, 'Parents')">Parents</button>
+            <button class="tablinks" onclick="openTab(event, 'FormTeachers')">Form Teachers</button>
+        </div>
+
+        <!-- Teachers Tab -->
+        <div id="Teachers" class="tabcontent">
+            <h2>Teachers List</h2>
+            <ul>
+                {% for teacher in teachers %}
+                    <li>
+                        {{ teacher.name }} 
+                        <a href="{{ url_for('reset_teacher_password', teacher_email=teacher.email) }}">Reset Password</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Students Tab -->
+        <div id="Students" class="tabcontent">
+            <h2>Students List</h2>
+            <ul>
+                {% for student in students %}
+                    <li>
+                        {{ student.name }} 
+                        <a href="{{ url_for('reset_student_password', student_email=student.email) }}">Reset Password</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Parents Tab -->
+        <div id="Parents" class="tabcontent">
+            <h2>Parents List</h2>
+            <ul>
+                {% for parent in parents %}
+                    <li>
+                        {{ parent.name }} 
+                        <a href="{{ url_for('reset_parent_password', parent_email=parent.email) }}">Reset Password</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Form Teachers Tab -->
+        <div id="FormTeachers" class="tabcontent">
+            <h2>Form Teachers List</h2>
+            <ul>
+                {% for form_teacher in form_teachers %}
+                    <li>
+                        {{ form_teacher.name }} 
+                        <a href="{{ url_for('reset_form_teacher_password', form_teacher_email=form_teacher.email) }}">Reset Password</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    
+    // Set default tab
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector(".tablinks").click();
+    });
+    </script>
+</body>
+</html>
