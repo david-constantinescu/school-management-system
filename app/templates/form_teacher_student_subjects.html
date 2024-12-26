@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYLYT0KVHT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MYLYT0KVHT');
+</script>
+<script async="async" data-cfasync="false" src="//pl25391289.profitablecpmrate.com/0ae54f70e34fd5bebd40e8ff13df180d/invoke.js"></script>
+<div id="container-0ae54f70e34fd5bebd40e8ff13df180d"></div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9591721492031714"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Subjects for {{ student_email }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Subjects for {{ student_email }}</h1>
+
+    <h3>Subjects</h3>
+    <ul>
+        {% for subject in subjects %}
+            <li>
+                <a href="{{ url_for('form_teacher_subject_details', student_email=student_email, subject_name=subject) }}">
+                    {{ subject }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
