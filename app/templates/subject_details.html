@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYLYT0KVHT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MYLYT0KVHT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9591721492031714"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>{{ subject }} details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ subject }} details</h1>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Grades')">Grades</button>
+        <button class="tablinks" onclick="openTab(event, 'Absences')">Absences</button>
+    </div>
+
+    <div id="Grades" class="tabcontent">
+        <h3>Grades</h3>
+        <ul>
+            {% for grade in grades %}
+                <li>Date: {{ grade.date }} - Grade: {{ grade.grade }}</li>
+            {% else %}
+                <li>No grades available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div id="Absences" class="tabcontent">
+        <h3>Absences</h3>
+        <ul>
+            {% for absence in absences %}
+                <li>Date: {{ absence.date }} - Reason: {{ absence.reason }} - Motivated: {{ 'Yes' if absence.is_motivated else 'No' }}</li>
+            {% else %}
+                <li>No absences recorded.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";  
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";  
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MYLYT0KVHT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MYLYT0KVHT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9591721492031714"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Form Teacher Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome, {{ session['name'] }}</h1>
+    <h2>Your Class: {{ session['class_name'] }}</h2>
+
+    <h3>Students in Your Class</h3>
+    <ul>
+        {% for student in students %}
+            <li>
+                <a href="{{ url_for('form_teacher_student_subjects', student_email=student.email) }}">
+                    {{ student.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>
