@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date
 
@@ -902,5 +902,8 @@ def create_app():
                 return redirect(url_for('admin_dashboard'))
 
         return render_template('reset_teacher_password.html', teacher=teacher)
+    @app.route('/ads.txt')
+    def serve_ads_txt():
+        return send_from_directory(app.root_path, 'ads.txt')
     
     return app
