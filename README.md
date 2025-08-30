@@ -13,10 +13,9 @@ The School Management System is a web application designed to facilitate the man
 - **Notifications**: Users receive notifications for new grades and homework assignments.
 
 ## Technologies Used
-- **Backend**: Flask
+- **Backend**: Flask (Python)
 - **Database**: SQLite (using SQLAlchemy for ORM)
 - **Frontend**: HTML, CSS (with Bootstrap for styling)
-- **JavaScript**: For dynamic content and interactivity
 
 ## Installation
 1. Clone the repository:
