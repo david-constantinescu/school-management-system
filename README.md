@@ -14,7 +14,7 @@ The School Management System is a web application designed to facilitate the man
 
 ## Technologies Used
 - **Backend**: Flask (Python)
-- **Database**: SQLite (using SQLAlchemy for ORM)
+- **Database**: SQLite
 - **Frontend**: HTML, CSS (with Bootstrap for styling)
 
 ## Installation
@@ -40,20 +40,13 @@ Teacher: Manage grades, absences, homework, and lessons.
 Form Teacher: Manage students in their class.
 Parent: View their child's subjects and performance.
 
-## File Structure
-/app
-    ├── __init__.py          # Application factory and routes
-    ├── run.py               # Entry point to run the application
-    ├── templates/           # HTML templates for rendering views
-    ├── static/              # Static files (CSS, JS)
-    ├── models.py            # Database models
-    └── requirements.txt     # Python dependencies
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
+Thank you in advance for contributing!
 
 ## License
 This project is licensed under the GNU GPLv3 License - see the LICENSE file for details.
 
 ## Contact me
-Reach me over on Discord: **@thechallenger_**
+Reach me over on Discord **@thechallenger_** or on Instagram **@dqvid.15**
